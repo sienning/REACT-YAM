@@ -4,14 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
-import message from './store/reducers/yam';
+import { Provider } from 'react-redux';
+import yam from './store/reducers/yam';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 const store = configureStore({
   reducer: { yam }
 });
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>
 );
 
