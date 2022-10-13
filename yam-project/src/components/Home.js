@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  setNbExperiences,
+  setNbLancers,
   setNbBrelans,
-  addExperiences,
+  addLancers,
   reset,
 } from "../store/actions/yam-actions";
 
@@ -21,13 +21,13 @@ const Button = styled.button`
 function Home() {
   const dispatch = useDispatch();
 
-  function handleChangeExperiences(e) {
-    dispatch(setNbExperiences(e.target.value));
+  function handleChangeLancers(e) {
+    dispatch(setNbLancers(e.target.value));
   }
 
   function handleRoll() {
     dispatch(reset());
-    dispatch(addExperiences());
+    dispatch(addLancers());
     dispatch(setNbBrelans());
   }
 
@@ -36,11 +36,11 @@ function Home() {
       <h1>Yam</h1>
       <div>
         <div className="nb-exp">
-          <p>Nombre d'expériences : </p>
-          <Input type="number" onChange={handleChangeExperiences} />
+          <p>Nombre de lancers : </p>
+          <Input type="number" onChange={handleChangeLancers} />
         </div>
 
-        <Button onClick={handleRoll}>Lancer l'expérience</Button>
+        <Button onClick={handleRoll}>Lancer les dés</Button>
 
         <Link to="/stats">Voir les résultats</Link>
       </div>
