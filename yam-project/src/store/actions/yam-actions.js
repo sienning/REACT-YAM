@@ -1,11 +1,11 @@
 import {
   SET_NB_EXP,
   SET_NB_BRELANS,
-  ADD_EXPERIENCES,
+  ADD_LANCERS,
   RESET,
 } from "../constants/yam-constants";
 
-export const setNbExperiences = (payload) => {
+export const setNbLancers = (payload) => {
   return {
     type: SET_NB_EXP,
     payload,
@@ -18,9 +18,9 @@ export const setNbBrelans = () => {
   };
 };
 
-export const addExperiences = () => {
+export const addLancers = () => {
   return {
-    type: ADD_EXPERIENCES,
+    type: ADD_LANCERS,
   };
 };
 

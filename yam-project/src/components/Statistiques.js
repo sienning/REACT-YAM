@@ -4,30 +4,30 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 function Statistiques() {
-  const { nbExperiences, nbBrelans, experiences } = useSelector(
+  const { nbLancers, nbBrelans, lancers } = useSelector(
     (state) => state.yamReducer
   );
 
-  const nbBrelansProba = (1 / 36) * nbExperiences;
+  const nbBrelansProba = ((1 / 36) * nbLancers).toFixed(0);
 
-  const tauxdeReussite = (nbBrelans / nbBrelansProba) * 100;
+  const tauxdeReussite = ((nbBrelans / nbBrelansProba) * 100).toFixed(0);
 
   return (
     <>
       <h1>Statistiques</h1>
 
       <h2>Vos résultats</h2>
-      <p>Nombre d'expériences : {nbExperiences}</p>
+      <p>Nombre de lancers : {nbLancers}</p>
       <p>Nombre de brelans : {nbBrelans}</p>
 
       <h2>Probabilités</h2>
       <p>
-        Nombre de brelans propables pour <b>{nbExperiences}</b> lancers :
-        {nbBrelansProba.toFixed(2)}
+        Nombre de brelans propables pour <b>{nbLancers}</b> lancers :
+        {nbBrelansProba}
       </p>
 
       <h2>Taux de Réussite</h2>
-      <p>{tauxdeReussite.toFixed(2)} %</p>
+      <p>{tauxdeReussite}%</p>
 
       <Link to="/">Retourner aux lancers</Link>
     </>
