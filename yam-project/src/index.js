@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { configureStore } from '@reduxjs/toolkit';
+import message from './store/reducers/yam';
+const store = configureStore({
+  reducer: { yam }
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
