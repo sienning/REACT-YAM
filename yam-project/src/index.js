@@ -6,10 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import yamReducer from "./store/reducers/yam-reducer";
+import userReducer from "./store/reducers/user-reducer";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const store = configureStore({
-  reducer: { yamReducer },
+  reducer: { yamReducer, userReducer },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
