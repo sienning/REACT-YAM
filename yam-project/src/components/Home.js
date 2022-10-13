@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -41,10 +42,7 @@ function Home() {
 
         <Button onClick={handleRoll}>Lancer l'expérience</Button>
 
-        <div className="nb-brelans">
-          <p>Nombre de brelans : </p>
-          <p>{useSelector((state) => state.yamReducer.nbBrelans)}</p>
-        </div>
+        <Link to="/stats">Voir les résultats</Link>
       </div>
     </div>
   );

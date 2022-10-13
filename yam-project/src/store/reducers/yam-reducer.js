@@ -13,6 +13,7 @@ const initialState = {
     //Exemple d'experiences
     // [1, 4, 8]
   ],
+  history: [],
 };
 
 const yamReducer = (state = initialState, action = {}) => {
@@ -26,23 +27,12 @@ const yamReducer = (state = initialState, action = {}) => {
       };
 
     case SET_NB_BRELANS:
-      //   const isEqual = (current) => {
-      //     console.log(current);
-      //     return true;
-      //     // val === arr[0];
-
-      //   };
-
       let nbBrelans = state.nbBrelans;
 
-      const copyExperiences = [...state.experiences];
-      console.log(copyExperiences);
-
-      copyExperiences.map((experience) => {
+      state.experiences.map((experience) => {
         if (experience.every((v) => v === experience[0])) {
           nbBrelans++;
         }
-        console.log(nbBrelans);
       });
 
       return {

@@ -1,7 +1,37 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
 
 function Statistiques() {
-    
+  const { nbExperiences, nbBrelans, experiences } = useSelector(
+    (state) => state.yamReducer
+  );
+
+  const nbBrelansProba = (1 / 36) * nbExperiences;
+
+  const tauxdeReussite = (nbBrelans / nbBrelansProba) * 100;
+
+  return (
+    <>
+      <h1>Statistiques</h1>
+
+      <h2>Vos résultats</h2>
+      <p>Nombre d'expériences : {nbExperiences}</p>
+      <p>Nombre de brelans : {nbBrelans}</p>
+
+      <h2>Probabilités</h2>
+      <p>
+        Nombre de brelans propables pour <b>{nbExperiences}</b> lancers :
+        {nbBrelansProba.toFixed(2)}
+      </p>
+
+      <h2>Taux de Réussite</h2>
+      <p>{tauxdeReussite.toFixed(2)} %</p>
+
+      <Link to="/">Retourner aux lancers</Link>
+    </>
+  );
 }
 
 export default Statistiques;
