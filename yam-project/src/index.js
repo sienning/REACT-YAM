@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
-import yam from './store/reducers/yam';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import yamReducer from "./store/reducers/yam-reducer";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const store = configureStore({
-  reducer: { yam }
+  reducer: { yamReducer },
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
