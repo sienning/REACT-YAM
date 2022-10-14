@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setNbJetons, resetUser } from "../store/actions/user-actions";
 import { Page, Header, Main, Row, Column } from "../styles/Layout";
 import { H1, H2, H3, P } from "../styles/Content";
-import { ButtonPrimary, ButtonSecondary, Credits } from "../styles/Components";
+import { ButtonPrimary, ButtonSecondary, Credits, LinkYam } from "../styles/Components";
 import { Input } from "../styles/Forms";
 
 function Statistiques() {
@@ -70,7 +70,7 @@ function Statistiques() {
             <p>{tauxdeReussite}%</p>
           </Column>
 
-          <Link to="/">Retourner aux lancers</Link>
+          <LinkYam to="/">Retourner aux lancers</LinkYam>
         </Main>
       </Page>
     </>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ButtonPrimary = styled.button`
   padding: 1rem 1.5rem;
@@ -36,11 +37,8 @@ export const ButtonSecondary = styled.button`
   }
 `;
 
-export const Link = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+export const LinkYam = styled(Link)`
+  margin: auto;
   box-shadow: 0 0 20em 20em rgba(0, 0, 0, 0.1);
   padding: 1rem 1.5rem;
   border: 3px solid #90aaeb;

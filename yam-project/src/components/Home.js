@@ -13,7 +13,7 @@ import { setMise, setNbJetons, resetUser } from "../store/actions/user-actions";
 
 import { Page, Header, Main, Row, Column } from "../styles/Layout";
 import { H1, H2, H3, P } from "../styles/Content";
-import { ButtonPrimary, ButtonSecondary, Credits } from "../styles/Components";
+import { ButtonPrimary, ButtonSecondary, Credits, LinkYam } from "../styles/Components";
 import { Input } from "../styles/Forms";
 
 function Home() {
@@ -115,9 +115,9 @@ function Home() {
         <ButtonPrimary onClick={handleRoll}>Lancer les dés</ButtonPrimary>
 
         {lancers.length > 0 && (
-          <Link onClick={handleGain} to="/stats">
+          <LinkYam onClick={handleGain} to="/stats">
             Voir les résultats
-          </Link>
+          </LinkYam>
         )}
       </Main>
     </Page>
