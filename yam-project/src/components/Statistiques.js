@@ -46,10 +46,13 @@ function Statistiques() {
       <Page>
         <Header>
           <H1>yam</H1>
+          <Credits>
+            <H3>{nbJetons}🎟️</H3>
+          </Credits>
         </Header>
         <Main>
           <H2>Vos résultats</H2>
-          <H3>{renderGains()}</H3>
+          <H3 style={{ textAlign: "center" }}>{renderGains()}</H3>
 
           <Row>
             <p>Lancers : {nbLancers}</p>
