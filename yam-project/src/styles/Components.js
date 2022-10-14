@@ -39,7 +39,6 @@ export const ButtonSecondary = styled.button`
 
 export const LinkYam = styled(Link)`
   margin: auto;
-  box-shadow: 0 0 20em 20em rgba(0, 0, 0, 0.1);
   padding: 1rem 1.5rem;
   border: 3px solid #90aaeb;
   border-radius: 1rem;
@@ -50,7 +49,7 @@ export const LinkYam = styled(Link)`
   background-color: #f5f5f5;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-
+  text-decoration: none;
   &:hover {
     background-color: #90aaeb;
     color: #f5f5f5;
