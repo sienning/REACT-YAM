@@ -7,7 +7,7 @@ export const Input = styled.input`
   border-bottom: 3px solid #90aaeb;
   width: fit-content;
   font-family: "Fuzzy Bubbles", cursive;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 400;
   color: #070b0e;
   background-color: #f5f5f5;

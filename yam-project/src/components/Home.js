@@ -9,27 +9,17 @@ import {
   reset,
 } from "../store/actions/yam-actions";
 
-import {
-  setMise,
-  setNbJetons,
-  resetUser,
-} from "../store/actions/user-actions";
+import { setMise, setNbJetons, resetUser } from "../store/actions/user-actions";
 
-const Input = styled.input`
-  height: 30px;
-  width: 50px;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-`;
+import { Page, Header, Main, Row, Column } from "../styles/Layout";
+import { H1, H2, H3, P } from "../styles/Content";
+import { ButtonPrimary, ButtonSecondary, Credits } from "../styles/Components";
+import { Input } from "../styles/Forms";
 
 function Home() {
   const dispatch = useDispatch();
-  const { nbJetons, mise } = useSelector(
-    (state) => state.userReducer
-  );
-  const { nbLancers, nbBrelans } = useSelector(
+  const { nbJetons, mise } = useSelector((state) => state.userReducer);
+  const { nbLancers, nbBrelans, lancers } = useSelector(
     (state) => state.yamReducer
   );
 
@@ -48,7 +38,6 @@ function Home() {
     dispatch(reset());
     dispatch(addLancers());
     dispatch(setNbBrelans());
-
   }
 
   function handleGain() {
@@ -57,48 +46,81 @@ function Home() {
     if (tauxdeReussite > 100) {
       const newNbJetons = parseInt(nbJetons) + parseInt(mise);
       dispatch(setNbJetons(parseInt(newNbJetons)));
-
     } else if (tauxdeReussite < 100) {
       const newNbJetons = nbJetons - parseInt(mise);
       dispatch(setNbJetons(parseInt(newNbJetons)));
     }
-
   }
 
   const handleResetJetons = () => {
     dispatch(resetUser());
-  }
+  };
 
   return (
-    <div style={{ textAlign: "center" }} className="home-yam">
-      <h1>Yam</h1>
-      <div>
-        Vous avez {nbJetons} jetons
-      </div>
-      <div>
-        {
-          nbJetons === 0 ?
-            <div>
-              <p>Vous n'avez plus de jeton à mettre en jeu ...</p>
-              <Button onClick={handleResetJetons}>Recommencer</Button>
-            </div> :
-            <div>
-              Vous misez
-              <input type="number" min={0} max={nbJetons} onChange={handleChangeMise} />
-            </div>
-        }
-      </div>
-      <div>
-        <div className="nb-exp">
-          <p>Nombre de lancers : </p>
-          <Input min={0} type="number" onChange={handleChangeLancers} />
-        </div>
+    <Page>
+      <Header>
+        <H1>yam</H1>
+        <Credits>
+          <H3>{nbJetons}🎟️</H3>
+        </Credits>
+      </Header>
+      <Main>
+        <Column>
+          <H2>Règles du jeu</H2>
+          <P style={{ textAlign: "center" }}>
+            Vous avez 3 dés pour faire un brelan.
+            <br />
+            Si vous faites plus de brelans parmis tous vos lancers que le nombre
+            <br />
+            de brelans probable, vous remportez le double de votre mise.
+            <br />
+            Si vous en faites autant, vous remportez votre mise.
+            <br />
+            Si vous en faites moins , vous perdez votre mise.
+            <br />
+          </P>
+        </Column>
+        <Row>
+          <div>
+            {nbJetons === 0 ? (
+              <Column>
+                <P>Vous n'avez plus de tickets à mettre en jeu ...</P>
+                <ButtonSecondary onClick={handleResetJetons}>
+                  Recommencer
+                </ButtonSecondary>
+              </Column>
+            ) : (
+              <Column>
+                <H3>Vous misez</H3>
+                <Input
+                  type="number"
+                  min={0}
+                  max={nbJetons}
+                  onChange={handleChangeMise}
+                />
+              </Column>
+            )}
+          </div>
+          <Column>
+            <H3>Nombre de lancers</H3>
+            <Input
+              min={0}
+              max={999}
+              type="number"
+              onChange={handleChangeLancers}
+            />
+          </Column>
+        </Row>
 
-        <Button onClick={handleRoll}>Lancer les dés</Button>
+        <ButtonPrimary onClick={handleRoll}>Lancer les dés</ButtonPrimary>
 
-        <Link onClick={handleGain} to="/stats">Voir les résultats</Link>
-      </div>
-    </div>
+        {lancers.length > 0 && (
+          <Link onClick={handleGain} to="/stats">
+            Voir les résultats
+          </Link>
+        )}
+      </Main>
+    </Page>
   );
 }
 

@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const H1 = styled.h1`
   font-family: "Fuzzy Bubbles", cursive;
   font-style: normal;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #8fc8da; ;
+  letter-spacing: 0.5rem;
+  color: #070b0e;
 `;
 
 export const H2 = styled.h2`
@@ -13,6 +14,7 @@ export const H2 = styled.h2`
   font-style: normal;
   font-size: 2rem;
   font-weight: 400;
+  text-decoration: underline;
   color: #070b0e;
 `;
 
@@ -25,7 +27,7 @@ export const H3 = styled.h3`
 `;
 
 export const P = styled.p`
-  font-family: "Fuzzy Bubbles", cursive;
+  font-family: sans-serif;
   font-style: normal;
   font-size: 1rem;
   font-weight: 400;
